@@ -27,7 +27,7 @@ class Plugin implements PluginInterface
      */
     public static function activate(): string
     {
-        \Typecho\Plugin::factory("Widget_Archive")->header = [ static::class, 'render' ];
+        \Typecho\Plugin::factory(Archive::class)->header = [ static::class, 'render' ];
 
         return _t('Meta 插件啟動成功');
     }
