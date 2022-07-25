@@ -113,6 +113,7 @@ class Plugin implements PluginInterface
         $creator = $meta->creator;
         $title = $is_index ? $options->title : $archive->title;
         $description = $is_index ? $options->description : $archive->getDescription();
+        $url = $is_index ? $options->siteUrl : $archive->url;
 
         $allows = [
             'name' => [
@@ -121,10 +122,11 @@ class Plugin implements PluginInterface
                 'twitter:site'      => $site
             ],
             'property' => [
-                'og:type'           => '',
+                'og:type'           => $is_index ? 'website' : 'article',
                 'og:title'          => $title,
                 'og:image'          => $image,
-                'og:description'    => $description
+                'og:description'    => $description,
+                'og:url'            => $url
             ]
         ];
 
